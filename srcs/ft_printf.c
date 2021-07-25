@@ -17,8 +17,8 @@ t_flags ft_flags(void)
 {
     t_flags flags;
 
+    flags.dot   =   -1;
     flags.hash  =   0;
-	flags.dot   =   -1;
     flags.zero  =   0;
 	flags.minus =   0;
 	flags.plus  =   0;
