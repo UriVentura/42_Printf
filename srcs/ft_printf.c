@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
 
 t_flags ft_flags(void)
 {
@@ -29,31 +28,26 @@ t_flags ft_flags(void)
 	return (flags);
 }
 
-int     ft_flags_parse(const char *save, t_flags *flags, va_list args)
+int ft_printf(const char *format, ...)
 {
-    int i;
-    //COMPROBAR IGUALACIONES DE FLAGS
-    while (save[i])
+    char            *str;
+    unsigned int    i;
+    char            *s;
+
+    //Init args
+    va_list arg;
+    va_start(arg, format);
+
+    while(*str != '\0')
     {
-        if (!ft_isdigit(save[i]) &&!ft_istypelist(save[i]) 
-        && !ft_isflagslist(save[i]))
-            break ;
-        if (save[i] == '0' && flags->width == 0 && flags->minus == 0)
-            flags->zero = 1;
-        if (save[i] == '.')
-            i = ft_flag_dot(save, i, flags, args);
-        if (save[i] == '-')
-            flags == ft_flag_minus(*flags);
-        if (save[i] == '*')
-            flags == ft_flag_width(args, *flags);
-        if (ft_isdigit(save[i]))
-            flags == ft_flag_digit(save[i], *flags);
-        if (ft_istypelist(save[i]))
+        str = format;
+        str++;
+
+        while(*str != '%')
         {
-            flags->type = save[i];
-            break ;
+            ft_putchar(*str);
+            str++;
         }
-        i++;
+        str++;
     }
-    return (i);
 }

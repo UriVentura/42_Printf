@@ -44,12 +44,22 @@ typedef struct s_flags
     char        type; // "c"
 }               t_flags;
 
+typedef struct s_format
+{
+    char    *in_str;
+    int     out_int;
+}           t_format;
+
 /*
  *---------------------------------- INT -------------------------------
  */
 
-int ft_istypelist(int c);
-int ft_isflagslist(int c);
+int     main();
 
+int     ft_istypelist(int c);
+int     ft_isflagslist(int c);
+int     ft_printf(const char *format, ...);
+void	ft_putchar(char c);
+int ft_convert(unsigned int i);
 
 #endif
