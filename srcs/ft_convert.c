@@ -12,10 +12,12 @@
 
 #include "../includes/ft_printf.h"
 
-int ft_convert(unsigned int i)
+int ft_convert(char *format, int i, va_list args)
 {
-    if (i == 'c')
-        ft_putchar(i);
+    int ret;
+
+    if (format[i + 1] == 'i' || format[i + 1] == 'd')
+        ret = ft_number(args);
     else if (i == 's')
         ft_putchar(i);
     else if (i == 'p')

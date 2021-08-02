@@ -12,7 +12,18 @@
 
 #include "../includes/ft_printf.h"
 
+//El putchar de toda la vida
 void	ft_putchar(char c) 
 {
 	write(1, &c, 1);
+}
+
+//Elimino los contenidos de una string especifica o un rango de string
+void	ft_clearstr(char **str)
+{
+	if (*str && **str)
+	{
+		free(*str);
+		*str = (NULL);
+	}
 }

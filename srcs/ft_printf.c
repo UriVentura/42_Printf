@@ -12,22 +12,6 @@
 
 #include "../includes/ft_printf.h"
 
-t_flags ft_flags(void)
-{
-    t_flags flags;
-
-    flags.dot   =   -1;
-    flags.hash  =   0;
-    flags.zero  =   0;
-	flags.minus =   0;
-	flags.plus  =   0;
-    flags.space =   0;
-    flags.width =   0;
-    flags.type  =   0;
-
-	return (flags);
-}
-
 int ft_printf(const char *format, ...)
 {
     char            *str;
@@ -50,4 +34,33 @@ int ft_printf(const char *format, ...)
         }
         str++;
     }
+}
+
+static int  ft_format(const char *format, va_list args)
+{
+    char    *tmp;
+    int     ret;
+    int     i;
+
+    tmp = ft_strdup(format);
+    ret = 0;
+    i = 0;
+    while(tmp[i] != '\0')
+    {
+        if (tmp[i] != '%')
+            ret += write(1, &tmp[i++], args);
+        else
+        {
+            ret = ret + ft_convert(tmp, i, args);
+            if (ret == -1)
+            {
+                ret = write(1, "%", 1);
+                i++;
+                continue ;
+            }
+            i = i + 2;
+        }
+    }
+    free(tmp);
+    return (ret);
 }
