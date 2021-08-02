@@ -16,8 +16,7 @@ int ft_printf(const char *format, ...)
 {
     char            *str;
     unsigned int    i;
-    char            *s;
-
+    
     //Init args
     va_list arg;
     va_start(arg, format);
@@ -48,13 +47,13 @@ static int  ft_format(const char *format, va_list args)
     while(tmp[i] != '\0')
     {
         if (tmp[i] != '%')
-            ret += write(1, &tmp[i++], args);
+            ret = ret + ft_putchar(&tmp[i++]);
         else
         {
             ret = ret + ft_convert(tmp, i, args);
             if (ret == -1)
             {
-                ret = write(1, "%", 1);
+                ret = ft_putchar("%");
                 i++;
                 continue ;
             }

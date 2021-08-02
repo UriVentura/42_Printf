@@ -51,5 +51,7 @@ int     ft_printf(const char *format, ...);
 void	ft_putchar(char c);
 int     ft_convert(char *format, int offset, va_list args);
 void	ft_clearstr(char **str);
+int     ft_number(va_list args);
+int     ft_unumber(va_list args);
 
 #endif
