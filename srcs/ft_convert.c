@@ -16,19 +16,13 @@ int ft_convert(unsigned int i)
 {
     if (i == 'c')
         ft_putchar(i);
+    else if (i == 's')
+        ft_putchar(i);
+    else if (i == 'p')
+        ft_putchar(i);
     else if (i == 'd')
         ft_putchar(i);
-    else if (i == 'e')
-        ft_putchar(i);
-    else if (i == 'f')
-        ft_putchar(i);
-    else if (i == 'g')
-        ft_putchar(i);
     else if (i == 'i')
-        ft_putchar(i);
-    else if (i == 'o')
-        ft_putchar(i);
-    else if (i == 's')
         ft_putchar(i);
     else if (i == 'u')
         ft_putchar(i);

@@ -17,8 +17,8 @@ CFLAGS := -Wall -Wextra -Werror
 CC := cc
 
 SRC = ./srcs/ft_printf.c \
-		./srcs/ft_flags.c \
-		./srcs/ft_istypelist.c
+		./srcs/ft_utils.c \
+		./srcs/ft_convert.c
 	  				
 OBJ = $(SRC:.c=.o)
 
