@@ -14,13 +14,13 @@
 
 int ft_printf(const char *format, ...)
 {
-    char            *str;
-    unsigned int    i;
+    const char  *str;
     
     //Init args
     va_list arg;
     va_start(arg, format);
 
+    str = NULL;
     while(*str != '\0')
     {
         str = format;
@@ -33,12 +33,13 @@ int ft_printf(const char *format, ...)
         }
         str++;
     }
+    return (*str);
 }
 
-static int  ft_format(const char *format, va_list args)
+/*static int  ft_format(const char *format, va_list args)
 {
     char    *tmp;
-    int     ret;
+    int    ret;
     int     i;
 
     tmp = ft_strdup(format);
@@ -47,13 +48,13 @@ static int  ft_format(const char *format, va_list args)
     while(tmp[i] != '\0')
     {
         if (tmp[i] != '%')
-            ret = ret + ft_putchar(&tmp[i++]);
+            ret = ret + write(1, &tmp[i++], 1);
         else
         {
             ret = ret + ft_convert(tmp, i, args);
             if (ret == -1)
             {
-                ret = ft_putchar("%");
+                ret = write(1, "%%", 1);
                 i++;
                 continue ;
             }
@@ -62,4 +63,4 @@ static int  ft_format(const char *format, va_list args)
     }
     free(tmp);
     return (ret);
-}
+}*/
