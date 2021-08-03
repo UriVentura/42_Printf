@@ -34,11 +34,11 @@ typedef unsigned char   t_byte;
 typedef struct s_types
 {
     size_t      pointer;
-    char        *str;
     int         character;
     int         number;
     int         unumber;
     int         hexa;
+    char        *string;
 }               t_types;
 
 /*
