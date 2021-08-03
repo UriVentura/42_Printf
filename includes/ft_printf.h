@@ -43,16 +43,23 @@ typedef struct s_types
 }               t_types;
 
 /*
- *---------------------------------- INT -------------------------------
+ *---------------------------------- FUNCTIONS -------------------------------
  */
 
-int     main();
+int         main();
 
-int     ft_printf(const char *format, ...);
-void	ft_putchar(char c);
-int     ft_convert(char *format, int offset, va_list args);
-void	ft_clearstr(char **str);
-int     ft_number(va_list args);
-int     ft_unumber(va_list args);
+int         ft_printf(const char *format, ...);
+void	    ft_putchar(char c);
+void	    ft_clearstr(char **str);
+static int  ft_format(const char *format, va_list args);
+
+/*
+ *---------------------------------- CONVERTIONS -------------------------------
+ */
+int         ft_convert(char *format, int offset, va_list args);
+
+int         ft_number(va_list args);
+int         ft_unumber(va_list args, ...);
+int         ft_hexa(va_list args, ...);
 
 #endif

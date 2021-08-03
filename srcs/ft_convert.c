@@ -18,20 +18,18 @@ int ft_convert(char *format, int i, va_list args)
 
     if (format[i + 1] == 'i' || format[i + 1] == 'd')
         ret = ft_number(args);
-    else if (i == 's')
-        ft_putchar(i);
-    else if (i == 'p')
-        ft_putchar(i);
-    else if (i == 'd')
-        ft_putchar(i);
-    else if (i == 'i')
-        ft_putchar(i);
-    else if (i == 'u')
-        ft_putchar(i);
-    else if (i == 'x')
-        ft_putchar(i);
-    else if (i == 'X')
-        ft_putchar(i);
-    else if (i == '%')
-        ft_putchar(i);
+    else if (format[i + 1] == 's')
+        ret = ft_string(args);
+    else if (format[i + 1] == 'c')
+        ret = ft_char(args);
+    else if (format[i + 1] == 'p')
+        ret = ft_pointer(args);
+    else if (format[i + 1] == 'u')
+        ret = ft_unumber(args);
+    else if (format[i + 1] == 'x')
+        ret = ft_hexa(args, 'x');
+    else if (format[i + 1] == 'X')
+        ret = ft_hexa(args, 'X');
+    else if (format[i + 1] == '%')
+        ret = write(1, "%", 1);
 }

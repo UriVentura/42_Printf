@@ -14,31 +14,19 @@
 
 int ft_printf(const char *format, ...)
 {
-    const char            *str;
-    unsigned int    i;
-    
-    //Init args
-    va_list arg;
-    va_start(arg, format);
+    va_list args;
+    int     res;
 
-    while(*str != '\0')
-    {
-        str = format;
-        str++;
-
-        while(*str != '%')
-        {
-            ft_putchar(*str);
-            str++;
-        }
-        str++;
-    }
+    va_start(args, format);
+    res = ft_format(format, args);
+    va_end(args);
+    return (res);
 }
 
 static int  ft_format(const char *format, va_list args)
 {
     char    *tmp;
-    int     ret;
+    int    ret;
     int     i;
 
     tmp = ft_strdup(format);
