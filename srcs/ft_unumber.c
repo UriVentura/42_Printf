@@ -7,8 +7,8 @@ int     ft_unumber(va_list args)
     char    *res;
     int     i;
 
-    type.unumber = va_args(args, int);
-    res = //Funcion del itoa con unsigned int (por hacer)
+    type.unumber = va_arg(args, unsigned int);
+    res = ft_itoa(type.unumber);
     i = 0;
     while(res[i] != '\0')
         ft_putchar(&res[i++]);
