@@ -26,8 +26,8 @@ int ft_convert(char *format, int i, va_list args)
         ft_putchar(i);
     else if (i == 'i')
         ft_putchar(i);
-    else if (i == 'u')
-        ft_putchar(i);
+    else if (format[i + 1] == 'u')
+        ret = ft_unumber(args);
     else if (i == 'x')
         ft_putchar(i);
     else if (i == 'X')
