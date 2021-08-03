@@ -20,7 +20,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-# include <stdin.h>
 # include <limits.h>
 # include <stdarg.h>
 
@@ -53,6 +52,9 @@ void	    ft_putchar(char c);
 void	    ft_clearstr(char **str);
 static int  ft_format(const char *format, va_list args);
 
+static int	len_htoa(char *str, unsigned int n, int i, int convert);
+char	    *ft_htoa(int n, int convert);
+
 /*
  *---------------------------------- CONVERTIONS -------------------------------
  */
@@ -60,6 +62,7 @@ int         ft_convert(char *format, int offset, va_list args);
 
 int         ft_number(va_list args);
 int         ft_unumber(va_list args, ...);
-int         ft_hexa(va_list args, ...);
+int         ft_hexa(va_list args, int convert);
+int         ft_pointer(va_list args);
 
 #endif
