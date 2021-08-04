@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int     ft_unumber(va_list args, ...)
+int     ft_unumber(va_list args)
 {
     t_types type;
     char    *res;

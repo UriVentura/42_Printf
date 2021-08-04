@@ -32,4 +32,7 @@ int ft_convert(char *format, int i, va_list args)
         ret = ft_hexa(args, 'X');
     else if (format[i + 1] == '%')
         ret = write(1, "%", 1);
+    else
+        return (-1);
+    return (ret);
 }

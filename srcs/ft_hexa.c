@@ -20,6 +20,7 @@ static int	len_htoa(char *str, unsigned int n, int i, int convert)
     }
 }
 
+//Hacemos un itoa pero reconvertido para el valor hexadecimal con algunos retoques y en base 16
 char	*ft_htoa(int n, int convert)
 {
 	char            *res;
