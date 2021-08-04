@@ -57,6 +57,6 @@ int     ft_hexa(va_list args, int convert)
     i = 0;
     while(res[i] != '\0')
         ft_putchar(&res[i++]);
-    ft_clearstr(&res);
+    free(&res);
     return (i);
 }

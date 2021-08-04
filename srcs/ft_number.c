@@ -24,6 +24,6 @@ int ft_number(va_list args)
 
     while(res[i] != '\0')
         ft_putchar(&res[i++]);
-    ft_clearstr(&res);
+    free(&res);
     return (i);
 }

@@ -14,6 +14,6 @@ int     ft_string(va_list args)
         return (write(1, "(null)", 6));
     while(res[i] != '\0')
         ft_putchar(&res[i++]);
-    ft_clearstr(&res);
+    free(&res);
     return (i);
 }
