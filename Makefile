@@ -35,13 +35,18 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $?
+	$(MAKE) -C ./Libft
+	cp	libft/libft.a $(NAME)
+	ar rc $(NAME) $(OBJ)
+	gcc $(FLAGS) $(NAME) -o ft_printf -fsanitize=address
 
 clean:
-	rm -f $(OBJ)
+	$(MAKE) clean -C ./Libft
+	rm -rf $(NAME) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(MAKE) fclean -C ./Libft
+	rm -rf $(NAME) $(OBJ)
 
 re: fclean clean all
 

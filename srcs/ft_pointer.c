@@ -27,7 +27,7 @@ int     ft_pointer(va_list args)
     i = 0;
     while(res[i] != '\0')
         ft_putchar(res[i++]);
-    free(&res);
-    free(&tmp);
+    ft_clearstr(&res);
+    ft_clearstr(&tmp);
     return (i);
 }
