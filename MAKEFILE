@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = ft_printf.a
 
 CFLAGS := -Wall -Wextra -Werror
 
@@ -18,7 +18,8 @@ CC := cc
 
 SRC = ./srcs/ft_printf.c \
 		./srcs/ft_utils.c \
-		./srcs/ft_convert.c
+		./srcs/ft_convert.c \
+		./srcs/ft_number.c 
 	  				
 OBJ = $(SRC:.c=.o)
 
