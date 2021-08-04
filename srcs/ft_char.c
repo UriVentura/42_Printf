@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oventura <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 17:54:30 by oventura          #+#    #+#             */
-/*   Updated: 2021/07/29 17:54:32 by oventura         ###   ########.fr       */
+/*   Created: 2021/08/04 14:01:26 by oventura          #+#    #+#             */
+/*   Updated: 2021/08/04 14:01:27 by oventura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
-int main()
+int ft_char(va_list args)
 {
+    t_types type;
 
+    type.character = va_arg(args, int);
+    ft_putchar(type.character);
+    return (1);
 }

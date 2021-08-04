@@ -23,7 +23,7 @@ int ft_number(va_list args)
     i = 0;
 
     while(res[i] != '\0')
-        ft_putchar(&res[i++]);
-    ft_clearstr(&res);
+        ft_putchar(res[i++]);
+    free(&res);
     return (i);
 }

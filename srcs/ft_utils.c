@@ -27,4 +27,3 @@ void	ft_clearstr(char **str)
 		*str = (NULL);
 	}
 }
-

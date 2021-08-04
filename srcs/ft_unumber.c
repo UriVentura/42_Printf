@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int     ft_unumber(va_list args, ...)
+int     ft_unumber(va_list args)
 {
     t_types type;
     char    *res;
@@ -22,7 +22,7 @@ int     ft_unumber(va_list args, ...)
     res = ft_itoa(type.unumber);
     i = 0;
     while(res[i] != '\0')
-        ft_putchar(&res[i++]);
-    ft_clearstr(&res);
+        ft_putchar(res[i++]);
+    free(&res);
     return (i);
 }

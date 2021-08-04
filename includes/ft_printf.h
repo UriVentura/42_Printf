@@ -34,11 +34,11 @@ typedef unsigned char   t_byte;
 typedef struct s_types
 {
     size_t      pointer;
-    char        *str;
     int         character;
     int         number;
     int         unumber;
     int         hexa;
+    char        *string;
 }               t_types;
 
 /*
@@ -48,17 +48,25 @@ typedef struct s_types
 int         main();
 
 int         ft_printf(const char *format, ...);
+
 void	    ft_putchar(char c);
 void	    ft_clearstr(char **str);
-static int  ft_format(const char *format, va_list args);
+int         ft_format(const char *format, va_list args);
+
+int	        len_htoa(char *str, unsigned int n, int i, int convert);
+char	    *ft_htoa(int n, int convert);
 
 /*
  *---------------------------------- CONVERTIONS -------------------------------
  */
+
 int         ft_convert(char *format, int offset, va_list args);
 
 int         ft_number(va_list args);
-int         ft_unumber(va_list args, ...);
-int         ft_hexa(va_list args, ...);
+int         ft_unumber(va_list args);
+int         ft_hexa(va_list args, int convert);
+int         ft_pointer(va_list args);
+int         ft_string(va_list args);
+int         ft_char(va_list args);
 
 #endif
