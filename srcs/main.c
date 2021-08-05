@@ -34,7 +34,7 @@ int main()
     printf("pointer:    %p", &test);
     printf("\n-------------------------------------------------------------\n");
     printf("\n-------------------------------------------------------------\n");
-    ft_printf("string FT:   %s\n", "klk");
-    printf("string: %s", "klk");
+    ft_printf("string FT:   %s\n", "klk mi panitaaaaa");
+    printf("string: %s", "klk mi panitaaaaa");
     printf("\n-------------------------------------------------------------\n");
 }

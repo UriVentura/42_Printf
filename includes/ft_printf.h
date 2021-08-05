@@ -53,8 +53,9 @@ void	    ft_putchar(char c);
 void	    ft_clearstr(char **str);
 int         ft_format(const char *format, va_list args);
 
-int	        len_htoa(char *str, unsigned int n, int i, int convert);
-char	    *ft_htoa(int n, int convert);
+char	    *ft_htoa(unsigned int n, int convert);
+char	    *ft_utoa(unsigned int n);
+char	    *ft_ptoa(size_t ptr);
 
 /*
  *---------------------------------- CONVERTIONS -------------------------------

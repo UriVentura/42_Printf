@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer.c                                       :+:      :+:    :+:   */
+/*   ft_ptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oventura <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@ int     ft_pointer(va_list args)
     type.pointer = va_arg(args, size_t);
     if (!type.pointer)
         return (write(1, "0x0", 3));
-    tmp = ft_itoa(type.pointer);
+    tmp = ft_ptoa(type.pointer);
     res = ft_strjoin("0x", tmp);
     i = 0;
     while(res[i] != '\0')
@@ -30,4 +30,42 @@ int     ft_pointer(va_list args)
     ft_clearstr(&res);
     ft_clearstr(&tmp);
     return (i);
+}
+
+static	void	len_ptoa(char *str, size_t ptr, size_t i)
+{
+	str[i] = '\0';
+	while (i--)
+	{
+		if (ptr % 16 < 10)
+		{
+			str[i] = (ptr % 16) + '0';
+			ptr /= 16;
+		}
+		else
+		{
+			str[i] = (ptr % 16) + 87;
+			ptr /= 16;
+		}
+	}
+}
+
+char	*ft_ptoa(size_t ptr)
+{
+	char	*res;
+	size_t	i;
+	size_t	tmp;
+
+	i = 1;
+	tmp = ptr / 16;
+	while (tmp)
+	{
+		i++;
+		tmp /= 16;
+	}
+	res = malloc(i + 1);
+	if (!res)
+		return (NULL);
+	len_ptoa(res, ptr, i);
+	return (res);
 }

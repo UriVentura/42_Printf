@@ -19,10 +19,40 @@ int     ft_unumber(va_list args)
     int     i;
 
     type.unumber = va_arg(args, unsigned int);
-    res = ft_itoa(type.unumber);
+    res = ft_utoa(type.unumber);
     i = 0;
     while(res[i] != '\0')
         ft_putchar(res[i++]);
     ft_clearstr(&res);
     return (i);
+}
+
+static	void	len_utoa(char *str, unsigned int n, int i)
+{
+	str[i] = '\0';
+	while (i--)
+	{
+		str[i] = (n % 10) + '0';
+		n /= 10;
+	}
+}
+
+char	*ft_utoa(unsigned int n)
+{
+	char			*res;
+	int				i;
+	unsigned int	tmp;
+
+	i = 1;
+	tmp = n / 10;
+	while (tmp)
+	{
+		i++;
+		tmp /= 10;
+	}
+	res = malloc(i + 1);
+	if (!res)
+		return (NULL);
+	len_utoa(res, n, i);
+	return (res);
 }

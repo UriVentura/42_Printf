@@ -13,7 +13,7 @@
 #include "../includes/ft_printf.h"
 
 //Funcion de itoa para hexadecimal
-int	len_htoa(char *str, unsigned int n, int i, int convert)
+static void	len_htoa(char *str, unsigned int n, int i, int convert)
 {
 	str[i] = '\0';
     while(i--)
@@ -29,17 +29,19 @@ int	len_htoa(char *str, unsigned int n, int i, int convert)
             n = n / 16;
         }
     }
-    return (0);
 }
 
 //Hacemos un itoa pero reconvertido para el valor hexadecimal con algunos retoques y en base 16
-char	*ft_htoa(int n, int convert)
+//Restando el ASCII del hexadecimal en 55, 'A' convierte un carácter en el rango 'A' a 'F' en un valor
+//de entre el rango 10 a 15. De manera igual al 87, convierte un carácter en el rango 'a' a 'f' en
+//un rango de 10 a 15
+char	*ft_htoa(unsigned int n, int convert)
 {
 	char            *res;
     int             i;
     unsigned int    tmp;
 
-	i = -1;
+	i = 1;
     tmp = n / 16;
     while(tmp)
     {
