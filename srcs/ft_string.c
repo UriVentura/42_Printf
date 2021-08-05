@@ -16,12 +16,14 @@ int     ft_string(va_list args)
 {
     t_types type;
     int     i;
+    char    *res;
 
     type.string = va_arg(args, char *);
     i = 0;
-    if (!type.string)
+    res = type.string;
+    if (!res)
         return (write(1, "(null)", 6));
-    while(type.string[i] != '\0')
-        ft_putchar(&type.string[i++]);
+    while(res[i] != '\0')
+        ft_putchar(res[i++]);
     return (i);
 }
