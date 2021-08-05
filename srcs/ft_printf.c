@@ -31,7 +31,7 @@ int  ft_format(const char *format, va_list args)
         else
         {
             ret = ret + ft_convert(tmp, i, args);
-            if (!ret) // o  (ret == -1) ??
+            if (!ret)
             {
                 ret = write(1, "%", 1);
                 i++;
