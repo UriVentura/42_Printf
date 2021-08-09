@@ -12,27 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int     ft_pointer(va_list args)
-{
-    t_types type;
-    char    *tmp;
-    char    *res;
-    int     i;
-
-    type.pointer = va_arg(args, size_t);
-    if (!type.pointer)
-        return (write(1, "0x0", 3));
-    tmp = ft_ptoa(type.pointer);
-    res = ft_strjoin("0x", tmp);
-    i = 0;
-    while(res[i] != '\0')
-        ft_putchar(res[i++]);
-    ft_clearstr(&res);
-    ft_clearstr(&tmp);
-    return (i);
-}
-
-static	void	len_ptoa(char *str, size_t ptr, size_t i)
+static void	len_ptoa(char *str, size_t ptr, size_t i)
 {
 	str[i] = '\0';
 	while (i--)
@@ -68,4 +48,24 @@ char	*ft_ptoa(size_t ptr)
 		return (NULL);
 	len_ptoa(res, ptr, i);
 	return (res);
+}
+
+int	ft_pointer(va_list args)
+{
+	t_types		type;
+	char		*tmp;
+	char		*res;
+	int			i;
+
+	type.pointer = va_arg(args, size_t);
+	if (!type.pointer)
+		return (write(1, "0x0", 3));
+	tmp = ft_ptoa(type.pointer);
+	res = ft_strjoin("0x", tmp);
+	i = 0;
+	while (res[i] != '\0')
+		ft_putchar(res[i++]);
+	ft_clearstr(&res);
+	ft_clearstr(&tmp);
+	return (i);
 }

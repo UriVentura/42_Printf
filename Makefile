@@ -24,9 +24,8 @@ SRC = ./srcs/ft_char.c \
 		./srcs/ft_printf.c \
 		./srcs/ft_string.c \
 		./srcs/ft_unumber.c \
-		./srcs/ft_utils.c \
-		./srcs/main.c
-	  				
+		./srcs/ft_utils.c 
+		
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

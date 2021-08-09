@@ -13,7 +13,7 @@
 #include "../includes/ft_printf.h"
 
 //El putchar de toda la vida
-void	ft_putchar(char c) 
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
